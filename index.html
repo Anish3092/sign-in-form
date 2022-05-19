@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+        crossorigin="anonymous" />
+        
+    <link rel="stylesheet" type="text/css" href="style.css">  
+</head>
+<body>
+    
+    <div class="container">
+        <div class="header">
+            <h2>Sign Up Form</h2>
+        </div>
+
+        <form action="" onsubmit="return validation()" class="form" id="form">
+            <div class="form-control">
+                <label>Username</label>
+                <input type="text" name="" id="username" placeholder="Enter Your Name" autocomplete="off">
+                <span id="username" ></span>
+            </div>
+            
+            <div class="form-control">
+                <label>Email</label>
+                <input type="text" name="" id="email" placeholder="Enter Your Email" autocomplete="off">
+                <span id="emailids" ></span>
+                
+            </div>
+            
+            <div class="form-control">
+                <label>Password</label>
+                <input type="password" name="" id="password" placeholder="Enter Your Password" autocomplete="off">
+                <span id="passwords" ></span>
+                
+            </div>
+            
+            <div class="form-control">
+                <label>Confirm Password</label>
+                <input type="password" name="" id="cpassword" placeholder="Confirm Password" autocomplete="off">
+                <span id="confrmpass" ></span>
+                
+            </div>
+            <input type="submit" name="submit" value="Submit" class="btn">
+        </form>
+    </div>
+    
+    <script type="text/javascript">
+		
+
+		function validation(){
+
+			var user = document.getElementById('username').value;
+			var emails = document.getElementById('email').value;
+			var pass = document.getElementById('password').value;
+			var confirmpass = document.getElementById('cpassword').value;
+
+
+
+
+
+			if(user == ""){
+				document.getElementById('username').innerHTML =" ** Please fill the username field";
+				return false;
+			}
+			if((user.length <= 2) || (user.length > 20)) {
+				document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
+				return false;	
+			}
+			if(!isNaN(user)){
+				document.getElementById('username').innerHTML =" ** only characters are allowed";
+				return false;
+			}
+
+
+
+            if(emails == ""){
+                document.getElementById('emailids').innerHTML =" ** Please fill the email id` field";
+                return false;
+            }
+            if(emails.indexOf('@') <= 0 ){
+                document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+                return false;
+            }
+
+            if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+                document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+                return false;
+            }
+
+
+
+
+			if(pass == ""){
+				document.getElementById('passwords').innerHTML =" ** Please fill the password field";
+				return false;
+			}
+			if((pass.length <= 5) || (pass.length > 20)) {
+				document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  5 and 20";
+				return false;	
+			}
+
+
+			if(pass!=confirmpass){
+				document.getElementById('confrmpass').innerHTML =" ** Password does not match the confirm password";
+				return false;
+			}
+
+
+
+			if(confirmpass == ""){
+				document.getElementById('confrmpass').innerHTML =" ** Please fill the confirmpassword field";
+				return false;
+			}
+
+
+
+		}
+
+	</script>
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    
+</body>
+</html>
